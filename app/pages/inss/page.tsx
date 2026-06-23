@@ -1,43 +1,28 @@
 'use client'
-
-import { inssTable } from '@/app/components/inssCalculator'
-import { calcularINSS } from '@/app/lib/inssCalc'
-import React, { useState } from 'react'
-
-export default function InssPage() {
-    const [salario, setSalario] = useState('')
-    const [tabela, setTabela] = useState('2024')
-    const [resultado, setResultado] = useState<string | null>(null)
-
-    const real = (n: number) =>
-        n.toLocaleString('pt-BR', {
-            style: 'currency',
-            currency: 'BRL'
-        })
+import { CalcularINSS } from "@/app/util/CalcularInss";
+import { useState } from "react";
 
 
-    const handleCalculate = () => {
-        const sal = Number(salario)
+export default function inssPage() {
+    const [salario, setSalario] = useState("");
+    const [tabela, setTabela] = useState("2024");
+    const [resultado, setResultado] = useState("");
 
-        if (!sal || sal <= 0) {
-            setResultado('salario invalido')
-            return
-        }
+    function handleCalculate() {
+        const valor = CalcularINSS(Number(salario), tabela);
 
-        const tabelaSelecionada = inssTable[tabela]
-        const inss = calcularINSS(sal, tabelaSelecionada)
-
-        setResultado(`
-                Salário: ${real(sal)}
-                INSS: ${real(inss)}
-                Tabela: ${tabela}
-            `)
+        setResultado(
+            `INSS: R$ ${valor.toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL"
+            })}`
+        );
     }
 
-    const handleErase = () => {
-        setSalario(''); setResultado(null)
+    function handleErase() {
+        setSalario("");
+        setResultado("");
     }
-
 
     return (
         <div style={{ padding: 40 }}>
@@ -50,10 +35,7 @@ export default function InssPage() {
                 placeholder="Salário bruto"
             />
 
-            <select
-                value={tabela}
-                onChange={(e) => setTabela(e.target.value)}
-            >
+            <select value={tabela} onChange={(e) => setTabela(e.target.value)}>
                 <option value="2021">2021</option>
                 <option value="2022">2022</option>
                 <option value="2023.01">2023.01</option>
@@ -63,17 +45,10 @@ export default function InssPage() {
                 <option value="2026">2026</option>
             </select>
 
-            <button onClick={handleCalculate}>
-                Calcular
-            </button>
-            <button onClick={handleErase} >Limpar</button>
+            <button onClick={handleCalculate}>Calcular</button>
+            <button onClick={handleErase}>Limpar</button>
 
-            {resultado && (
-                <pre style={{ marginTop: 20 }}>
-                    {resultado}
-                </pre>
-            )}
+            {resultado && <pre style={{ marginTop: 20 }}>{resultado}</pre>}
         </div>
-    )
-
+    );
 }
