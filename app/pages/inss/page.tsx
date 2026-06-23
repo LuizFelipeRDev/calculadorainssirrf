@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function inssPage() {
     const [salario, setSalario] = useState("");
-    const [tabela, setTabela] = useState("2024");
+    const [tabela, setTabela] = useState("2026");
     const [resultado, setResultado] = useState("");
 
     function handleCalculate() {
