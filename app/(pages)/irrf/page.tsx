@@ -1,5 +1,6 @@
 'use client'
 import { CalcularIrrf } from '@/app/util/CalcularIrrf'
+import { formatarMoeda } from "@/app/util/FormatarMoeda";
 import React, { useState } from 'react'
 
 export default function IrrfPage  ()  {
@@ -11,10 +12,7 @@ export default function IrrfPage  ()  {
     const valor = CalcularIrrf(Number(salario), tabela)
 
     setResultado(
-      `INSS R$ ${valor.toLocaleString("pt-BR", {
-        style: "currency",
-        currency: "BRL"
-      })}`
+      `IRRF ${formatarMoeda(valor)}`
     )
 
   }
@@ -25,7 +23,7 @@ export default function IrrfPage  ()  {
 
   return (
     <div style={{ padding: 40 }}>
-      <h1>Calculadora IRFF</h1>
+      <h1>Calculadora IRRF</h1>
 
       <input
         type="number"
