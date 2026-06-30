@@ -2,19 +2,13 @@ import { NextRequest, NextResponse } from 'next/server'
 
 const RSS_URL = 'https://agenciabrasil.ebc.com.br/rss/ultimasnoticias/feed.xml'
 
-const KEYWORDS = [
-    'inss', 'irrf', 'fgts', 'previdência', 'previdencia',
-    'imposto de renda', 'receita federal', 'trabalho',
-    'emprego', 'salário mínimo', 'salario minimo',
-    'contribuição', 'contribuicao', 'aposentadoria', 'pensão', 'pensao'
-]
-
 type Noticia = {
     titulo: string
     link: string
     descricao: string
     data: string
     categoria: string
+    imagem: string
 }
 
 function parseRSS(xml: string): Noticia[] {
@@ -32,23 +26,25 @@ function parseRSS(xml: string): Noticia[] {
 
         const titulo = getTag('title')
         const link = getTag('link')
-        const descricao = getTag('description').replace(/<[^>]*>/g, '').trim()
+        const imagem = getTag('imagem-destaque')
+        const descricao = getTag('description')
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&')
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, "'")
+            .replace(/<[^>]*>/g, ' ')
+            .replace(/\s+/g, ' ')
+            .trim()
         const data = getTag('pubDate')
         const categoria = getTag('category')
 
         if (titulo) {
-            items.push({ titulo, link, descricao, data, categoria })
+            items.push({ titulo, link, descricao, data, categoria, imagem })
         }
     }
 
     return items
-}
-
-function filtrarPorKeywords(items: Noticia[]): Noticia[] {
-    return items.filter(item => {
-        const texto = `${item.titulo} ${item.descricao} ${item.categoria}`.toLowerCase()
-        return KEYWORDS.some(kw => texto.includes(kw))
-    })
 }
 
 export async function GET(request: NextRequest) {
@@ -62,10 +58,9 @@ export async function GET(request: NextRequest) {
         }
 
         const xml = await response.text()
-        const todasNoticias = parseRSS(xml)
-        const filtradas = filtrarPorKeywords(todasNoticias)
+        const noticias = parseRSS(xml)
 
-        const resultado = filtradas.slice(0, 15).map(n => ({
+        const resultado = noticias.map(n => ({
             ...n,
             data: formatarData(n.data)
         }))

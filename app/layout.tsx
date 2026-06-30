@@ -30,7 +30,16 @@ export default function RootLayout({
         <GlobalStyle />
         <Header />
         <div>
-          {children}
+          <div
+            className="min-h-screen w-full"
+            style={{
+              backgroundColor: '#fff',
+              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect width='2' height='2' fill='%23c0c0c0'/%3E%3C/svg%3E")`,
+              backgroundSize: '20px 20px',
+            }}
+          >
+            {children}
+          </div>
         </div>
         <Footer />
       </body>
