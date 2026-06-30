@@ -1,36 +1,26 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Calculadora INSS e IRRF
 
-## Getting Started
+Calculadora online para cálculos de INSS e IRRF com base nas tabelas vigentes, consumindo notícias da Agência Brasil sobre previdência e impostos.
 
-First, run the development server:
+**Acesse:** [https://calculadorainssirrf.vercel.app/](https://calculadorainssirrf.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Como funciona
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+A aplicação possui duas calculadoras principais:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **INSS** — calcula o valor da contribuição com base no salário informado, aplicando as alíquotas por faixa salarial
+- **IRRF** — calcula o desconto do Imposto de Renda Retido na Fonte considerando dependentes e outras deduções
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Além disso, a página inicial exibe as últimas notícias da **Agência Brasil (EBC)** relacionadas a INSS, IRRF, FGTS, previdência e outros temas trabalhistas.
 
-## Learn More
+### Tecnologias
 
-To learn more about Next.js, take a look at the following resources:
+- Next.js 16 (App Router)
+- TypeScript
+- Styled-Components
+- Consumo de RSS da EBC
+- Deploy na Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Este projeto é uma evolução do [ProjetoCalcContabil](https://github.com/LuizFelipeRDev/ProjetoCalcContabil), modernizando a arquitetura de HTML, CSS e JavaScript puro para o ecossistema React com Next.js e TypeScript.

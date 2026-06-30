@@ -50,7 +50,7 @@ export default function Home() {
 
     return (
         <PageWrapper>
-            <Main Main style={{ backgroundColor: `${theme.colors.primary}` }}>
+            <Main style={{ backgroundColor: `${theme.colors.primary}`,minHeight:'100vh' }}>
                 <Divisor />
                 <H1>Calculadora INSS e IRRF</H1>
                 <H2 style={{ padding: '1rem' }}>Ferramentas de cálculo</H2>
