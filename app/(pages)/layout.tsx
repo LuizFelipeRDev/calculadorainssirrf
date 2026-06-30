@@ -7,7 +7,7 @@ import { theme } from "../styles/theme";
     children: React.ReactNode;
   }) {
     return (
-      <div style={{  minHeight: "100vh",paddingTop:100,backgroundColor:theme.colors.primary ,marginInline:'20%', paddingBottom:'2rem'}}>
+      <div style={{  minHeight: "90vh",paddingTop:90,backgroundColor:theme.colors.primary ,marginInline:'20%', paddingBottom:'2rem'}}>
         {children}
       </div>
     );

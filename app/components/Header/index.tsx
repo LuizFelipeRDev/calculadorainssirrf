@@ -7,7 +7,7 @@ const Header = () => {
     const menuLinks = [
         {
             name: 'Home',
-            href: '/home'
+            href: '/'
         },
         {
             name: 'INSS',
@@ -22,7 +22,7 @@ const Header = () => {
 
     return (
         <NavContainer>
-            <div style={{fontSize:30, fontWeight:600,zIndex:99}}>LueCalc</div>
+            <div style={{fontSize:30, fontWeight:600,zIndex:99}}>Calculadora</div>
 
             <LinksContainer>
                 {menuLinks.map((link, index) => {

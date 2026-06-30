@@ -9,11 +9,13 @@ export type FaixaIRRF = {
 export type IRRFTable = {
   periodo: string;
   faixas: FaixaIRRF[];
+  deducaoPorDependente: number;
 };
 
 export const irrfTable: Record<string, IRRFTable> = {
   "2021": {
     periodo: "2021",
+    deducaoPorDependente: 189.59,
     faixas: [
       { min: 0, max: 1903.98, aliquota: 0, deducao: 0, insento: true },
       { min: 1903.99, max: 2826.65, aliquota: 0.075, deducao: 142.80 },
@@ -25,6 +27,7 @@ export const irrfTable: Record<string, IRRFTable> = {
 
   "2022": {
     periodo: "2022",
+    deducaoPorDependente: 189.59,
     faixas: [
       { min: 0, max: 1903.98, aliquota: 0, deducao: 0, insento: true },
       { min: 1903.99, max: 2826.65, aliquota: 0.075, deducao: 142.80 },
@@ -36,6 +39,7 @@ export const irrfTable: Record<string, IRRFTable> = {
 
   "2023.01": {
     periodo: "01/2023 a 04/2023",
+    deducaoPorDependente: 189.59,
     faixas: [
       { min: 0, max: 1903.98, aliquota: 0, deducao: 0, insento: true },
       { min: 1903.99, max: 2826.65, aliquota: 0.075, deducao: 142.80 },
@@ -47,6 +51,7 @@ export const irrfTable: Record<string, IRRFTable> = {
 
   "2023.05": {
     periodo: "05/2023 em diante",
+    deducaoPorDependente: 189.59,
     faixas: [
       { min: 0, max: 2112, aliquota: 0, deducao: 0, insento: true },
       { min: 2112.01, max: 2826.65, aliquota: 0.075, deducao: 158.40 },
@@ -58,6 +63,7 @@ export const irrfTable: Record<string, IRRFTable> = {
 
   "2024": {
     periodo: "2024",
+    deducaoPorDependente: 189.59,
     faixas: [
       { min: 0, max: 2112, aliquota: 0, deducao: 0, insento: true },
       { min: 2112.01, max: 2826.65, aliquota: 0.075, deducao: 158.40 },
@@ -69,6 +75,7 @@ export const irrfTable: Record<string, IRRFTable> = {
 
   "2025": {
     periodo: "2025",
+    deducaoPorDependente: 227.25,
     faixas: [
       { min: 0, max: 2210, aliquota: 0, deducao: 0, insento: true },
       { min: 2210.01, max: 2826.65, aliquota: 0.075, deducao: 165.75 },
@@ -80,6 +87,7 @@ export const irrfTable: Record<string, IRRFTable> = {
 
   "2026": {
     periodo: "2026",
+    deducaoPorDependente: 227.25,
     faixas: [
       { min: 0, max: 2300, aliquota: 0, deducao: 0, insento: true },
       { min: 2300.01, max: 2826.65, aliquota: 0.075, deducao: 172.50 },

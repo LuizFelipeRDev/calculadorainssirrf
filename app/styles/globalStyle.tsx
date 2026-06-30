@@ -17,7 +17,7 @@ export const H1 = styled.h1`
   font-size:1.5rem;
   background-color: ${theme.colors.secundary};
   width: 100%;
-  padding: 1rem 0;
+  padding: ${theme.spacing.primary} 0;
 `
 
 export const H2 = styled.h2`
@@ -28,7 +28,7 @@ export const H2 = styled.h2`
 export const Divisor = styled.div`
   border-bottom: 2px solid ${theme.colors.terciary};
   width:80%;
-  margin-bottom: 1rem;
+  margin-bottom: ${theme.spacing.primary};
   border-radius: 8px;
 `
 
@@ -41,7 +41,7 @@ export const Main = styled.main`
 `
 
 export const InputWrapper = styled.div`
-  padding:0 0 1rem  0;
+  padding:0 0 ${theme.spacing.primary} 0;
   display: flex;
   justify-content: center;
   gap:0.5rem
@@ -51,5 +51,5 @@ export const Bar = styled.div`
   height: 2rem;
   background-color: ${theme.colors.secundary};
   width:100%;
-  margin-bottom: 1rem;
+  margin-bottom: ${theme.spacing.primary};
 `

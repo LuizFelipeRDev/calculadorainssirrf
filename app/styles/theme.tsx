@@ -4,5 +4,8 @@ export const theme ={
         secundary:'#EFC87F',
         terciary:'#FDFDFD',
         quartiary:'#fff4df',
+    },
+    spacing:{
+        primary:'0.8rem'
     }
 }
