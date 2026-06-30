@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { theme } from './styles/theme'
 
 export const PageWrapper = styled.div`
-    padding-inline: 20rem;
+    padding-inline: 10%;
     padding-top: 4rem;
 `
 

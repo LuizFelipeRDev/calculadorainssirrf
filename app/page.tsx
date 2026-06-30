@@ -27,6 +27,7 @@ type Noticia = {
     descricao: string
     data: string
     categoria: string
+    imagem: string
 }
 
 export default function Home() {
